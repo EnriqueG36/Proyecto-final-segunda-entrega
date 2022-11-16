@@ -1,0 +1,1 @@
+//Contiene la logica CRUD de la base de datos firebase
