@@ -32,7 +32,7 @@ class ProductosController {
   async saveProducto(req, res, next) {
     try {
       const newProducto= await productosDao.save(req.body);
-      const response = successResponse(newUser);
+      const response = successResponse(newProducto);
       res.status(HTTP_STATUS.CREATED).json(response);
     }
     catch(error) {

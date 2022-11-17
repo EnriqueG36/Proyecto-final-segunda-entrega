@@ -5,7 +5,7 @@ const carritosRoutes = require('./carritos/carritos.routes.js');            //ru
 const router = Router();
 
 router.use('/productos', productosRoutes);          //Agregamos el prefijo /productos a las rutas incluidas en productsRoutes
-router.use('/carrito', carritosRoutes);             //Agregamos el prefijo /carritos a las rutas incluidas en carritosRoutes
+router.use('/carritos', carritosRoutes);             //Agregamos el prefijo /carritos a las rutas incluidas en carritosRoutes
 
 
 module.exports = router;

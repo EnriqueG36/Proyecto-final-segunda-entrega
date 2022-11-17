@@ -6,7 +6,7 @@ const ENVconfig = require('../config.js');
 
 module.exports = {
     mongodb: {
-        uri: `mongodb+srv://enrique:${ENVconfig}@clustercoder.ijswitn.mongodb.net/?retryWrites=true&w=majority`
+        uri: `mongodb+srv://enrique:${ENVconfig.DB_PASSWORD}@clustercoder.ijswitn.mongodb.net/?retryWrites=true&w=majority`
     }
 }
 

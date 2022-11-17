@@ -5,7 +5,7 @@ const dbConfig = require('../../DB/db.config.js')               //Importamos el 
 
 class MongoContainer {
 
-    constructor (collection, squema) {                          //El constructor recibe el nombre de la coleccion y el squema de mongoose
+    constructor (collection, schema) {                          //El constructor recibe el nombre de la coleccion y el squema de mongoose
         this.model = mongoose.model(collection, schema);
     }
 
@@ -27,7 +27,7 @@ class MongoContainer {
 
     //Metodo getById para buscar un documento por su id   
     async getById(id) {
-        const document = await this.model.findOne({ _id: id }, { __v: 0 });
+        const document = await this.model.findOne({ id: id }, { __v: 0 });
         if (!document) {
           const message = `Resource with id ${id} does not exist in our records`;
           throw new HttpError(HTTP_STATUS.NOT_FOUND, message);
@@ -38,7 +38,7 @@ class MongoContainer {
       //Metodo update para actualizar un documento segun su id
       async update(id, item) {
         const updatedDocument = await this.model.updateOne(
-          { _id: id },
+          { id: id },
           { $set: { ...item } }
         );
         if (!updatedDocument.matchedCount) {
@@ -56,7 +56,7 @@ class MongoContainer {
 
     //Metodo para eliminar un documento por id
     async delete(id) {
-        return await this.model.deleteOne({ _id: id });
+        return await this.model.deleteOne({ id: id });
       }
 
 }

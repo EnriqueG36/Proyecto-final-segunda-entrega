@@ -18,3 +18,8 @@ switch(envConfig.DATASOURCE) {                                          //switch
     default:
         throw new Error("Invalid DATA SOURCE");
 }
+
+module.exports = {
+    ProductosDao,
+    CarritosDao
+  }

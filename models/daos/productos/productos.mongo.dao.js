@@ -5,6 +5,7 @@ const MongoContainer = require('../../containers/mongo.container');
 
 const collection = "productos";                            //coleccion productos
 const productosSchema = new Schema({                       //squema de mongoose para la coleccion de productos
+  id: { type: Number },
   timeStamp: { type: Date, default: Date.now()},
   nombre: { type: String },
   descripcion: { type: String},
