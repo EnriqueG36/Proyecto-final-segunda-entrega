@@ -67,7 +67,7 @@ class CarritosController {
   async addProductoTocart(req, res, next) {
     const { id } = req.params;
     try {
-      const productToCart = await carritosDao.addProductoTocart(id, req.body);
+      const productToCart = await carritosDao.addProductToCart(id, req.body);
       const response = successResponse(productToCart);
       res.status(HTTP_STATUS.OK).json(response);
     }
