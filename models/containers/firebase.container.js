@@ -4,6 +4,7 @@
 const admin = require('firebase-admin');
 const { getFirestore } = require('firebase-admin/firestore');       //Se importa el metodo getFireStore
 const dbConfig = require('../../DB/db.config');
+const { HTTP_STATUS } = require ('../../constants/api.constants.js');
 
 //admin.initializeApp se sacó de la clase FireBaseContairner porque aparentemente se estaba ejecutando dos veces (imagino que al importar
 // el container dos veces en lo dao carritos y productos
@@ -50,6 +51,7 @@ class FirebaseContainer {
 
   async save(item) {
     const docRef = this.query.doc();
+    
     return await docRef.set(item);
   }
 

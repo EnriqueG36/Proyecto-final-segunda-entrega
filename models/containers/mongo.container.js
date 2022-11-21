@@ -1,7 +1,7 @@
 //Contiene la logica CRUD de la base de datos mongoDB
 const mongoose = require('mongoose');                           //Importamos el modulo mongoose
 const dbConfig = require('../../DB/db.config.js')               //Importamos el archivocon el objeto de configuración de las db
-
+const { HTTP_STATUS } = require ('../../constants/api.constants.js');
 
 class MongoContainer {
 

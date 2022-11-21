@@ -10,6 +10,7 @@ class ProductsFirebaseDao extends FirebaseContainer {
     super(collection);
   }
 
+  //Este metodo reciebe por reque params el id del carrito al que se añadirá el producto, y por body el "id": del producto presente en la db
   async addProductToCart (idcart, idproduct){
 
     const {id} = idproduct;
@@ -25,10 +26,20 @@ class ProductsFirebaseDao extends FirebaseContainer {
     //objetoCualquiera.productos = buscarProducto;
     return await docRef.update({productos: buscarProducto});
 
-    
-
-
   }
+
+  /*Este metodo sobreescribe al save() del container, es solo para guardar carritos nuevos en firebase, de modo que en automatico añada el campo productos 
+    al momento en que se crea el documento, ya que ese campo tiene que estar presente al momento de añadir un producto 
+  */
+
+  async save(item) {
+    const docRef = this.query.doc();
+    const nuevoItem = {
+      productos: []
+    }
+    return await docRef.set(nuevoItem);
+  }
+
 
 }
 
